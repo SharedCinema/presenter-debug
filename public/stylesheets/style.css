@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+div#container {
+  margin-bottom: 200px;
+  background: gray;
+  height: 100%;
+
+}
+
+div#debug-console {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: white;
+
+}
