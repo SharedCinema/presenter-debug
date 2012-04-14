@@ -1,7 +1,12 @@
+var fire;
+
 $(document).ready(function () {
   $('#new_debug').click(function() {
-    window.debug.log($('#debug_this').val());
+    debug.log($('#debug_this').val());
   });
 
-  window.debug.log('Debug Console launched.');
+  debug.log('Debug Console launched.');
+
+  fire = new Firebase('http://demo.firebase.com/sharedcinema');
+
 });

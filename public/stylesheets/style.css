@@ -25,6 +25,7 @@ div#debug-console {
   overflow: hidden;
   vertical-align: bottom;
   padding: 1em 1em 1em 1em;
+  font: 12px Monaco, "Courier New", monospace;
 }
 
 div#debug-message-history {
