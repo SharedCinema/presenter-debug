@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
 }
 
 a {
@@ -12,7 +13,6 @@ div#container {
   margin-bottom: 200px;
   background: gray;
   height: 100%;
-
 }
 
 div#debug-console {
@@ -22,5 +22,12 @@ div#debug-console {
   right: 0;
   height: 200px;
   background: white;
-
+  overflow-x: hidden;
+  overflow-y: scroll;
+  vertical-align: bottom;
 }
+
+span.timestamp:after {
+  content: " $ ";
+}
+
