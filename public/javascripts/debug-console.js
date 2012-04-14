@@ -31,8 +31,6 @@
       newEl.appendChild(newText);
       db_messages.appendChild(newEl);
       db_messages.scrollTop = db_messages.scrollHeight;
-      db_console.scrollTop = db_console.scrollHeight;
-
     }
   };
 

@@ -22,9 +22,15 @@ div#debug-console {
   right: 0;
   height: 200px;
   background: white;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
   vertical-align: bottom;
+  padding: 1em 1em 1em 1em;
+}
+
+div#debug-message-history {
+  position: relative;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 span.timestamp:after {
