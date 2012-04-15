@@ -8,7 +8,7 @@
       var item = arr[i];
       switch(typeof(item)) {
         case 'string':
-          output += item;
+          output += "'" + item + "'";
           break;
         case 'number':
           output += item.toString();
@@ -37,7 +37,7 @@
       output += item + ": ";
       switch(typeof(obj[item])) {
         case 'string':
-          output += obj[item];
+          output += "'" + obj[item] + "'";
           break;
         case 'number':
           output += obj[item].toString();
@@ -53,6 +53,7 @@
           console.log(obj[item]);
           continue;
       }
+      output += ", "
     }
     output += '} ';
     return output;
