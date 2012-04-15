@@ -28,15 +28,11 @@ $(document).ready(function () {
     youtubeEl.val('');
   });
 
-  $('.upvote').click(function(e) {
-    console.log(this);
-  });
-
 });
 
 
 cinema.on('value', function(snapshot) {
-  var c = snapshot.exportVal();
+  var c = snapshot.val();
   debug.log("cinema updated:");
   debug.log(snapshot.exportVal());
   printWholeQueue(c.queue);
@@ -52,19 +48,27 @@ function queueVideo(title, youtube_id) {
 
 function upvoteVideo(item_id, current_priority) {
   var itemRef = new Firebase('http://demo.firebase.com/sharedcinema/kevin_demo/cinema/queue/' + item_id);
+  var votesRef = new Firebase('http://demo.firebase.com/sharedcinema/kevin_demo/cinema/queue/' + item_id + '/votes');
+  var newPriority = parseInt(current_priority) + 1;
 
-  itemRef.setPriority(current_priority + 1);
+  votesRef.set(newPriority);
+  itemRef.setPriority(newPriority);
 }
 
 function printWholeQueue(queue) {
   var queueHandle = $('#completeQueue');
+  queueHandle.html('');
   for (key in queue) {
     var item = queue[key];
-    var html = '<li><a href="#" class="upvote" data-index="' + item.key + '" data-votes="' + item['.priority'] + '" >+1</a>&nbsp;&nbsp;';
-    html += '(' + item['.priority'] +')&nbsp;&nbsp;';
+    var html = '<li><a href="#" class="upvote" data-index="' + key + '" data-votes="' + item.votes + '" >+1</a>&nbsp;&nbsp;';
+    html += '(' + item.votes +')&nbsp;&nbsp;';
     html += '<a href="http://www.youtube.com/watch?v=' + item.youtube_id + '">' + item.title + '</a> </li>';
     queueHandle.append(html);
   }
+  $('.upvote').unbind('click');
+  $('.upvote').click(function(e) {
+    upvoteVideo(this.dataset.index, this.dataset.votes);
+  });
 }
 
 
